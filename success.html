@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Success</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4CAF50;
+      --secondary-color: #FFFFFF;
+      --background-color: #f9f9f9;
+      --text-color: #333;
+      --success-color: #28a745;
+      --shadow-color: rgba(0, 0, 0, 0.2);
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .success-container {
+      text-align: center;
+      background: linear-gradient(145deg, #e6e6e6, #ffffff);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 20px var(--shadow-color);
+      animation: slide-in 0.6s ease-out;
+    }
+
+    .success-icon {
+      font-size: 60px;
+      color: var(--success-color);
+      animation: bounce 1.5s infinite;
+    }
+
+    .success-message {
+      color: var(--primary-color);
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .success-details {
+      color: var(--text-color);
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .go-back-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--secondary-color);
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .go-back-btn:hover {
+      background-color: #388e3c;
+      transform: scale(1.05);
+    }
+
+    @keyframes slide-in {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="success-container">
+    <div class="success-icon">✔️</div>
+    <div class="success-message">Your Order is Successful!</div>
+    <div class="success-details">Thank you for shopping with us. Your order will be delivered soon.</div>
+    <button class="go-back-btn" onclick="goBack()">Go Back to Homepage</button>
+  </div>
+
+  <script>
+    function goBack() {
+      window.location.href = 'index.html'; // Redirect to the homepage or another page
+    }
+  </script>
+</body>
+</html>

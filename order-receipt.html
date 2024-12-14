@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Receipt</title>
+  <style>
+    /* Style for the receipt container */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #f2f2f2, #d7e7ff);
+  margin: 0;
+  padding: 0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.receipt-container {
+  width: 80%;
+  max-width: 900px;
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.receipt-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1a73e8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#order-history {
+  margin-top: 20px;
+}
+
+.order {
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fafafa;
+}
+
+.order:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.order h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.order p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #555;
+}
+
+.order h4 {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  color: #444;
+  text-transform: uppercase;
+}
+
+.order ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.order ul li {
+  font-size: 0.95rem;
+  color: #444;
+  padding: 5px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+.order ul li:last-child {
+  border-bottom: none;
+}
+
+/* Style for the Go Back button */
+.receipt-container a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #1a73e8;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.receipt-container a:hover {
+  background: #155bb5;
+  transform: scale(1.05);
+}
+
+.receipt-container a:active {
+  transform: scale(0.95);
+}
+
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="receipt-container">
+    <h1>Order History</h1>
+    <div id="order-history"></div>
+    <a href="index.html">Go Back to Menu</a>
+  </div>
+
+  <script>
+    // Retrieve all orders from localStorage
+    const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+
+    // Get the order history container
+    const orderHistoryContainer = document.getElementById('order-history');
+
+    // If there are no orders, display a message
+    if (allOrders.length === 0) {
+      orderHistoryContainer.innerHTML = "<p>No orders found.</p>";
+    } else {
+      // Loop through all orders and display them
+      allOrders.forEach(order => {
+        const orderDiv = document.createElement('div');
+        orderDiv.classList.add('order');
+
+        orderDiv.innerHTML = `
+          <h3>Order ID: ${order.orderToken}</h3>
+          <p>Order Time: ${order.orderTime}</p>
+          <p>Total: ₹${order.total}</p>
+          <h4>Items:</h4>
+          <ul>
+            ${order.items.map(item => `<li>${item.name} - ₹${item.price}</li>`).join('')}
+          </ul>
+          <hr>
+        `;
+
+        orderHistoryContainer.appendChild(orderDiv);
+      });
+    }
+  </script>
+</body>
+</html>

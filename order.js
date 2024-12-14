@@ -11,17 +11,14 @@ function displayCart() {
 
     // Loop through the cart and display each item with a delete button
     cart.forEach((item, index) => {
-        // Create a div for each cart item
         const itemElement = document.createElement('div');
         itemElement.classList.add('cart-item');
 
-        // Add item details and a delete button
         itemElement.innerHTML = `
             <span>${item.name}</span> - ₹${item.price}
             <button class="delete-btn" data-index="${index}">Delete</button>
         `;
 
-        // Append the item to the cart container
         cartContainer.appendChild(itemElement);
     });
 
@@ -51,4 +48,44 @@ function deleteCartItem(index) {
 // Call the displayCart function initially to show the items
 displayCart();
 
+/// Select the order button
+const orderButton = document.getElementById('order-btn');
 
+// Add click event listener to the button
+orderButton.addEventListener('click', () => {
+    if (cart.length === 0) {
+        alert("Your cart is empty! Please add items to place an order.");
+        return;
+    }
+
+    // Generate a unique token (Order ID)
+    const orderToken = 'ORD-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+
+    // Get the current time
+    const orderTime = new Date().toLocaleString();
+
+    // Prepare the order details
+    const orderDetails = {
+        orderToken: orderToken,
+        orderTime: orderTime,
+        items: cart,
+        total: cart.reduce((acc, item) => acc + item.price, 0)
+    };
+
+    // Retrieve all past orders from localStorage
+    let allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+
+    // Add the new order to the list
+    allOrders.push(orderDetails);
+
+    // Store the updated order list back to localStorage
+    localStorage.setItem('allOrders', JSON.stringify(allOrders));
+
+    // Clear the cart
+    cart = [];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+
+    // Redirect to success page
+    window.location.href = 'success.html';
+});

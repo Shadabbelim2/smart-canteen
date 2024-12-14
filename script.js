@@ -68,3 +68,29 @@ function checkLoginStatus() {
         }
     });
 }
+
+
+function saveOrder(items, total) {
+    // Create a new order object
+    const newOrder = {
+        orderToken: `#${Math.floor(100000 + Math.random() * 900000)}`, // Generate a random token
+        orderTime: new Date().toLocaleString(), // Current date and time
+        items: items, // Array of items
+        total: total // Total amount
+    };
+
+    // Fetch existing orders from localStorage or initialize as an empty array
+    const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+
+    // Add the new order to the array
+    allOrders.push(newOrder);
+
+    // Save the updated orders back to localStorage
+    localStorage.setItem('allOrders', JSON.stringify(allOrders));
+
+    // Save the last order separately
+    localStorage.setItem('lastOrder', JSON.stringify(newOrder));
+
+    // Redirect to the receipt page
+    window.location.href = 'receipt.html';
+}
