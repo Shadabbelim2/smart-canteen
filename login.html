@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css"> <!-- Optional -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
+</head>
+<body>
+    <div class="page-container">
+        <div class="center-wrapper">
+            <div class="form-container">
+                <h2>Login</h2>
+                
+                <!-- Div to show errors or success messages -->
+                <div id="response-message" style="color: red;"></div>
+                
+                <!-- Login Form -->
+                <form id="login-form">
+                    <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+                    <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+                    <button type="submit">Login</button>
+                </form>
+                
+                <div class="additional-links">
+                    <a href="signup.html" id="go-to-signup">Don't have an account? Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // AJAX to handle form submission
+        $(document).ready(function () {
+            $('#login-form').submit(function (e) {
+                e.preventDefault(); // Prevent form from reloading the page
+
+                // Get form data
+                const email = $('#login-email').val();
+                const password = $('#login-password').val();
+
+                // Send AJAX request to login.php
+                $.ajax({
+                    url: 'login.php',
+                    type: 'POST',
+                    data: { email: email, password: password },
+                    success: function (response) {
+                        // Parse JSON response
+                        const res = JSON.parse(response);
+
+                        // Handle response
+                        if (res.status === 'success') {
+                            window.location.href = 'index.html'; // Redirect on success
+                        } else {
+                            $('#response-message').text(res.message); // Show error message
+                        }
+                    },
+                    error: function () {
+                        $('#response-message').text('Something went wrong. Please try again.');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

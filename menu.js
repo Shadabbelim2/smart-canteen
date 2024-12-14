@@ -21,3 +21,4 @@ function addToCart(name, price) {
     // Save the updated cart to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
 }
+    

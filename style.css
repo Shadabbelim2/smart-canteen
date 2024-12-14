@@ -26,6 +26,29 @@ body {
     align-items: center;
     gap: 10px;
   }
+  .top-header .contact-info .Spacial{
+    background-color: #4CAF50;
+    color: white; 
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px; 
+    cursor: pointer;
+    margin: auto;
+    border-radius: 5px;
+    margin: 20px;
+  }
+  .top-header .contact-info .Spacial:hover{
+    background-color: white;
+    color: #4CAF50; 
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px; 
+    cursor: pointer;
+    margin: auto;
+    border-radius: 5px;
+    margin: 20px;
+    
+  }
 
   /* Contact Links */
   .contact-link {
@@ -73,11 +96,9 @@ body {
   }
   
   .main-header nav a:hover {
-    text-decoration: none;
-    color: #4CAF50;
-    background-color: #f9f9f9;
-    padding: 3px;
-    border-radius: 5px;
+    text-decoration:underline;
+    color: #f9f9f9;
+   
   }
   
   /* Mobile Menu Button (Hamburger) */
@@ -181,8 +202,8 @@ body {
 /* Hero Section */
 #hero {
     position: relative;
-    background: url('canteen-banner.jpg') no-repeat center center/cover;
-    height: 400px;
+    background: url('home-image/home-front.jpg') no-repeat center center/cover;
+    height: 100vh ;
     color: white;
     text-align: center;
     display: flex;
@@ -213,7 +234,8 @@ body {
 }
 
 #hero .btn:hover {
-    background-color: #45a049;
+    background-color: #f9f9f9;
+    color: #4CAF50;
 }
 
 /* Features Section */
@@ -248,8 +270,8 @@ body {
 }
 
 .feature-item img {
-    width: 50px;
-    height: 50px;
+    width: 250px;
+    height: 150px;
     margin-bottom: 20px;
 }
 
@@ -440,6 +462,7 @@ body {
   .footer-contact h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
+    color: #4CAF50;
   }
   
   .footer-links ul {
@@ -653,4 +676,458 @@ button.add-to-cart:hover {
 #proceed-order:disabled {
     background-color: #ddd;
     cursor: not-allowed;
+}
+
+/* Cart Section */
+#cart-container {
+  margin-top: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.cart-item span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Delete Button */
+.delete-btn {
+  padding: 5px 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background-color: #e60000;
+}
+
+#special-request {
+    margin: 30px 50px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#special-request h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+#special-item-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#special-item-form input,
+#special-item-form textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#special-item-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#special-item-form button:hover {
+    background-color: #45a049;
+}
+
+#request-message {
+    color: #28a745;
+    font-size: 16px;
+    margin-top: 10px;
+}
+/* Hero Section Buttons */
+#hero .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 10px;
+}
+
+#hero .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    max-width: 100%;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.modal-content .btn {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content .btn:hover {
+    background-color: #218838;
+}
+
+.close-btn {
+    background-color: #dc3545;
+    margin-top: 10px;
+}
+
+.close-btn:hover {
+    background-color: #c82333;
+}
+
+#login-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#login-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Page Container for Alignment */
+.page-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  min-height: 100vh; /* Full viewport height */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  color: #fff; /* White text */
+  overflow: hidden; /* Prevents scrollbars */
+}
+
+/* Center Content Wrapper */
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Form Container Styling */
+.form-container {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Glow effect */
+  padding: 40px;
+  text-align: center;
+  backdrop-filter: blur(10px); /* Glass effect */
+  width: 100%;
+}
+
+/* Form Heading */
+.form-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8); /* Lighter semi-transparent white */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+input:focus {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  background: #fff;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  background: linear-gradient(45deg, #ff6a00, #ee0979); /* Gradient button */
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(255, 105, 135, 0.4); /* Button shadow */
+  transition: all 0.4s ease;
+}
+
+/* Button Hover Effect */
+button[type="submit"]:hover {
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 10px 20px rgba(255, 105, 135, 0.6); /* Stronger shadow */
+}
+
+button[type="submit"]:active {
+  transform: translateY(2px); /* Button pressed effect */
+  box-shadow: 0 5px 10px rgba(255, 105, 135, 0.4); /* Reduce shadow */
+}
+
+/* Links and Navigation */
+.additional-links {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.additional-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.additional-links a:hover {
+  color: #ff6a00;
+}
+
+/* Modal Close Button */
+.close-btn {
+  background: linear-gradient(45deg, #333, #555);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: linear-gradient(45deg, #111, #333);
+  transform: scale(1.1);
+}
+
+/* Animation for Form Appearance */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.form-container {
+  animation: fadeIn 1s ease-out;
+}
+
+
+/* Page Container for Alignment */
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Center Content Wrapper */
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Sign Up Container */
+.signup-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  width: 100%;
+}
+
+/* Form Heading */
+.signup-container h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Input Fields */
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"],
+.signup-container input[type="tel"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+.signup-container input:focus {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  background: #fff;
+}
+
+/* Submit Button */
+.signup-container button[type="submit"] {
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(255, 105, 135, 0.4);
+  transition: all 0.4s ease;
+}
+
+/* Button Hover Effect */
+.signup-container button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 105, 135, 0.6);
+}
+
+.signup-container button[type="submit"]:active {
+  transform: translateY(2px);
+  box-shadow: 0 5px 10px rgba(255, 105, 135, 0.4);
+}
+
+/* Links and Navigation */
+.signup-container .additional-links {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.signup-container .additional-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.signup-container .additional-links a:hover {
+  color: #ff6a00;
+}
+
+/* Modal Animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.signup-container {
+  animation: fadeIn 1s ease-out;
+}
+
+ /* Add your CSS for the form here */
+ .error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
