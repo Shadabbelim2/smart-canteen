@@ -80,6 +80,7 @@ body {
     position: sticky;
     top: 0;
     /* width: 100%; */
+    z-index: 1000;
   }
   
   .main-header .logo img {
@@ -1221,23 +1222,9 @@ button[type="submit"]:active {
 }
 
 /* Style for the receipt container */
-.receipt-container {
-  width: 80%;
-  max-width: 900px;
-  background: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-}
 
-.receipt-title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #1a73e8;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
+
+
 
 #order-history {
   margin-top: 20px;
@@ -1315,3 +1302,242 @@ button[type="submit"]:active {
 .go-back-btn:active {
   transform: scale(0.95);
 }
+
+ /* General Page Styles */
+ .main-body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container Styles */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #1a73e8;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 20px 0 10px;
+  color: #444;
+}
+
+/* Personal Info Section */
+.info-section {
+  margin-bottom: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.info-item span {
+  font-weight: bold;
+  color: #555;
+}
+
+.info-item input {
+  background: #f9f9f9;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  color: #333;
+}
+
+.edit-link {
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.edit-link:hover {
+  text-decoration: underline;
+}
+
+/* FAQ Section */
+.faq-section {
+  margin: 40px 0;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+
+.faq-item p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Action Links */
+.action-links {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action-links a {
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  padding: 12px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.temp-deactivate {
+  background: #ff9800;
+}
+
+.temp-deactivate:hover {
+  background: #fb8c00;
+}
+
+.perm-delete {
+  background: #e91e63;
+}
+
+.perm-delete:hover {
+  background: #c2185b;
+}
+
+.logout {
+  background: #1a73e8;
+}
+
+.logout:hover {
+  background: #155bb5;
+}
+
+  /* Style for the receipt container */
+  .recipt-body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f2f2f2, #d7e7ff);
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .receipt-container {
+    width: 80%;
+    max-width: 900px;
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin:5rem 0;
+  }
+  
+  .receipt-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #1a73e8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  #order-history {
+    margin-top: 20px;
+  }
+  
+  .order {
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fafafa;
+  }
+  
+  .order:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .order h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .order p {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .order h4 {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: #444;
+    text-transform: uppercase;
+  }
+  
+  .order ul {
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .order ul li {
+    font-size: 0.95rem;
+    color: #444;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ccc;
+  }
+  
+  .order ul li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Style for the Go Back button */
+  .receipt-container a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #1a73e8;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .receipt-container a:hover {
+    background: #155bb5;
+    transform: scale(1.05);
+  }
+  
+  .receipt-container a:active {
+    transform: scale(0.95);
+  }
