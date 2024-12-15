@@ -8,16 +8,26 @@ function toggleMenu() {
     window.location.href = 'login.html';
 }
 
-document.querySelector('form').addEventListener('submit', function(event) {
-  const email = document.querySelector('input[name="email"]').value;
-  const password = document.querySelector('input[name="password"]').value;
+// document.addEventListener('DOMContentLoaded', function () {
+//     const form = document.querySelector('form');
+//     console.log(form); // Yeh check karega ki form null hai ya properly mil raha hai
 
-  // Perform basic client-side validation
-  if (!email || !password) {
-      alert('Please fill in all fields');
-      event.preventDefault(); // Prevent form submission
-  }
-});
+//     if (form) {
+//         form.addEventListener('submit', function (event) {
+//             const email = document.querySelector('input[name="email"]').value;
+//             const password = document.querySelector('input[name="password"]').value;
+
+//             if (!email || !password) {
+//                 alert('Please fill in all fields');
+//                 event.preventDefault(); // Prevent form submission
+//             }
+//         });
+//     } else {
+//         console.error("Form not found in DOM!");
+//     }
+// });
+
+
 
 
 $(document).ready(function () {
@@ -93,4 +103,28 @@ function saveOrder(items, total) {
 
     // Redirect to the receipt page
     window.location.href = 'receipt.html';
+}
+
+$(document).ready(function() {
+    $.ajax({
+        url: 'check-login.php', // PHP file to check if user is logged in
+        type: 'GET',
+        success: function(response) {
+            const res = JSON.parse(response);
+
+            if (res.status === 'success') {
+                // Hide login button and show user's name
+                $('#login-btn').hide();
+                $('#user-name').text('Welcome, ' + res.name).show();
+            } else {
+                // If not logged in, show login button
+                $('#login-btn').show();
+                $('#user-name').hide();
+            }
+        }
+    });
+});
+
+function redirectToLogin() {
+    window.location.href = 'login.html';
 }

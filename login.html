@@ -30,38 +30,6 @@
         </div>
     </div>
 
-    <script>
-        // AJAX to handle form submission
-        $(document).ready(function () {
-            $('#login-form').submit(function (e) {
-                e.preventDefault(); // Prevent form from reloading the page
-
-                // Get form data
-                const email = $('#login-email').val();
-                const password = $('#login-password').val();
-
-                // Send AJAX request to login.php
-                $.ajax({
-                    url: 'login.php',
-                    type: 'POST',
-                    data: { email: email, password: password },
-                    success: function (response) {
-                        // Parse JSON response
-                        const res = JSON.parse(response);
-
-                        // Handle response
-                        if (res.status === 'success') {
-                            window.location.href = 'index.html'; // Redirect on success
-                        } else {
-                            $('#response-message').text(res.message); // Show error message
-                        }
-                    },
-                    error: function () {
-                        $('#response-message').text('Something went wrong. Please try again.');
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
