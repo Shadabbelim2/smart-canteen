@@ -8,57 +8,8 @@
 </head>
   <link rel="stylesheet" href="style.css">
 
-  <body class="main-body">
+  <body >
 
-    <div class="top-header">
-        <div class="contact-info">
-            <!-- Phone Number with Font Awesome Icon -->
-            <span>
-                <i class="fas fa-phone"></i>
-                <a href="tel:+918827976129" class="contact-link">+91-8827976129</a>
-            </span>
-            <!-- Email with Font Awesome Icon -->
-            <span>
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:shadabbelim008@gmail.com" class="contact-link">shadabbelim008@gmail.com</a>
-            </span>
-        </div>
-        <!-- Login Button -->
-        <div id="login-container">
-          <button id="login-btn" onclick="redirectToLogin()">Login</button>
-          <span id="user-name" style="display:none;"></span> <!-- Display user name -->
-        </div>
-      </div>
-    
-      <!-- Rest of the code for the page -->
-    
-      <script>
-        // Check if user is logged in (session check)
-        $(document).ready(function() {
-            $.ajax({
-                url: 'check-login.php', // PHP file to check if user is logged in
-                type: 'GET',
-                success: function(response) {
-                    const res = JSON.parse(response);
-    
-                    if (res.status === 'success') {
-                        // Hide login button and show user's name
-                        $('#login-btn').hide();
-                        $('#user-name').text('Welcome, ' + res.name).show();
-                    } else {
-                        // If not logged in, show login button
-                        $('#login-btn').show();
-                        $('#user-name').hide();
-                    }
-                }
-            });
-        });
-    
-        function redirectToLogin() {
-            window.location.href = 'login.html';
-        }
-      </script>
-    
           
           <header class="main-header">
             <div class="logo">
@@ -124,7 +75,8 @@
       <div class="action-links">
         <a href="temp-deactivate.html" class="temp-deactivate">Temporarily Deactivate Account</a>
         <a href="perm-delete.html" class="perm-delete">Permanently Delete Account</a>
-        <a href="logout.html" class="logout">Logout</a>
+        <a href="javascript:void(0);" class="logout" onclick="logout()">Logout</a>
+
       </div>
     </div>
      <!-- Footer Section -->
@@ -162,6 +114,8 @@
   </footer> 
     <script src="profile.js"></script>
     <script src="script.js"></script>
+    <script src="logout.js"></script>
+    
   </body>
 
 </html>

@@ -196,15 +196,22 @@ body {
         }
       }
   
+      .item-count {
+        font-size: 14px;
+        font-weight: bold;
+        color: green;
+        margin-left: 10px;
+    }
+    
   /* Global Styles */
-body {
+/* body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #f4f4f4;
     color: #333;
-}
+} */
 
 /* Hero Section */
 #hero {
@@ -306,7 +313,8 @@ body {
 
 .menu-item {
     display: inline-block;
-    max-width: 300px;
+    max-width: 250px;
+    
     margin: 20px;
     background-color: white;
     padding: 20px;
