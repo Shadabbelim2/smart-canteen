@@ -29,9 +29,10 @@ function toggleMenu() {
 
 
 
-
 $(document).ready(function () {
-    // Check if the user is logged in already
+    console.log("jQuery Loaded Successfully!");
+
+    // Check if the user is logged in already (you can implement later)
     checkLoginStatus();
 
     // Handle form submission
@@ -47,18 +48,24 @@ $(document).ready(function () {
             type: 'POST',
             data: { email: email, password: password },
             success: function (response) {
-                const res = JSON.parse(response);
+                try {
+                    const res = JSON.parse(response);
 
-                if (res.status === 'success') {
-                    // On successful login, replace login button with user name
-                    $('#login-btn').hide();
-                    $('#user-name').text('Welcome, ' + res.name).show();
-                } else {
-                    $('#response-message').text(res.message); // Show error message
+                    if (res.status === 'success') {
+                        // On successful login
+                        $('#login-btn').hide();
+                        $('#user-name').text('Welcome, ' + res.name).show();
+                        $('#response-message').text('Login successful!').css('color', 'green');
+                    } else {
+                        $('#response-message').text(res.message).css('color', 'red');
+                    }
+                } catch (error) {
+                    $('#response-message').text('Error: Invalid server response.');
+                    console.error('JSON Parse Error:', error);
                 }
             },
             error: function () {
-                $('#response-message').text('Something went wrong. Please try again.');
+                $('#response-message').text('Something went wrong. Please try again.').css('color', 'red');
             }
         });
     });
@@ -103,29 +110,5 @@ function saveOrder(items, total) {
 
     // Redirect to the receipt page
     window.location.href = 'receipt.html';
-}
-
-$(document).ready(function() {
-    $.ajax({
-        url: 'check-login.php', // PHP file to check if user is logged in
-        type: 'GET',
-        success: function(response) {
-            const res = JSON.parse(response);
-
-            if (res.status === 'success') {
-                // Hide login button and show user's name
-                $('#login-btn').hide();
-                $('#user-name').text('Welcome, ' + res.name).show();
-            } else {
-                // If not logged in, show login button
-                $('#login-btn').show();
-                $('#user-name').hide();
-            }
-        }
-    });
-});
-
-function redirectToLogin() {
-    window.location.href = 'login.html';
 }
 

@@ -1,4 +1,14 @@
 <?php
+
+header("Access-Control-Allow-Origin: *"); // Replace '*' with a specific domain for better security
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    // Return OK response for preflight
+    http_response_code(200);
+    exit;
+}
 // Start session
 session_start();
 
