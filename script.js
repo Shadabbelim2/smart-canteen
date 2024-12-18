@@ -29,47 +29,47 @@ function toggleMenu() {
 
 
 
-$(document).ready(function () {
-    console.log("jQuery Loaded Successfully!");
+// $(document).ready(function () {
+//     console.log("jQuery Loaded Successfully!");
 
-    // Check if the user is logged in already (you can implement later)
-    checkLoginStatus();
+//     // Check if the user is logged in already (you can implement later)
+//     checkLoginStatus();
 
-    // Handle form submission
-    $('#login-form').submit(function (e) {
-        e.preventDefault();
+//     // Handle form submission
+//     $('#login-form').submit(function (e) {
+//         e.preventDefault();
 
-        const email = $('#login-email').val();
-        const password = $('#login-password').val();
+//         const email = $('#login-email').val();
+//         const password = $('#login-password').val();
 
-        // Send AJAX request to login.php
-        $.ajax({
-            url: 'login.php',
-            type: 'POST',
-            data: { email: email, password: password },
-            success: function (response) {
-                try {
-                    const res = JSON.parse(response);
+//         // Send AJAX request to login.php
+//         $.ajax({
+//             url: 'login.php',
+//             type: 'POST',
+//             data: { email: email, password: password },
+//             success: function (response) {
+//                 try {
+//                     const res = JSON.parse(response);
 
-                    if (res.status === 'success') {
-                        // On successful login
-                        $('#login-btn').hide();
-                        $('#user-name').text('Welcome, ' + res.name).show();
-                        $('#response-message').text('Login successful!').css('color', 'green');
-                    } else {
-                        $('#response-message').text(res.message).css('color', 'red');
-                    }
-                } catch (error) {
-                    $('#response-message').text('Error: Invalid server response.');
-                    console.error('JSON Parse Error:', error);
-                }
-            },
-            error: function () {
-                $('#response-message').text('Something went wrong. Please try again.').css('color', 'red');
-            }
-        });
-    });
-});
+//                     if (res.status === 'success') {
+//                         // On successful login
+//                         $('#login-btn').hide();
+//                         $('#user-name').text('Welcome, ' + res.name).show();
+//                         $('#response-message').text('Login successful!').css('color', 'green');
+//                     } else {
+//                         $('#response-message').text(res.message).css('color', 'red');
+//                     }
+//                 } catch (error) {
+//                     $('#response-message').text('Error: Invalid server response.');
+//                     console.error('JSON Parse Error:', error);
+//                 }
+//             },
+//             error: function () {
+//                 $('#response-message').text('Something went wrong. Please try again.').css('color', 'red');
+//             }
+//         });
+//     });
+// });
 
 // Function to check login status
 function checkLoginStatus() {

@@ -18,19 +18,16 @@
 
                 <!-- Error/Success Message Div -->
                 <div id="response-message" style="color: red; margin-bottom: 10px;"></div>
-
                 <form id="signup-form" method="POST">
                     <input type="text" name="name" placeholder="Enter your name" required>
                     <input type="email" name="email" id="email" placeholder="Enter your email" required>
                     <input type="tel" name="phone" placeholder="Enter your phone number" required>
                 
-                    <!-- Password Input with Eye Icon -->
                     <div class="password-wrapper">
                         <input type="password" name="password" id="password" placeholder="Enter your password" required>
                         <i class="fa fa-eye" id="toggle-password"></i>
                     </div>
                 
-                    <!-- Re-enter Password Input with Eye Icon -->
                     <div class="password-wrapper">
                         <input type="password" name="confirm_password" id="confirm-password" placeholder="Re-enter your password" required>
                         <i class="fa fa-eye" id="toggle-confirm-password"></i>
@@ -38,6 +35,13 @@
                 
                     <button type="submit">Sign Up</button>
                 </form>
+                
+                <!-- OTP Verification Form -->
+                <form id="otp-form" style="display: none;">
+                    <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
+                    <button type="submit">Verify OTP</button>
+                </form>
+                
                 <div class="additional-links">
                     <a href="login.html">Already have an account? Login</a>
                 </div>
