@@ -1,70 +1,61 @@
 <?php
-
-header("Access-Control-Allow-Origin: *"); // Replace '*' with a specific domain for better security
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    // Return OK response for preflight
-    http_response_code(200);
-    exit;
-}
-// Start session
 session_start();
 
-// Set content type as JSON
 header('Content-Type: application/json');
 
-// Initialize response array
-$response = [
-    'success' => false,
-    'message' => '',
-    'redirect' => false,
-];
+$response = ['success' => false, 'message' => ''];
 
-// Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $password = $_POST['password'];
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $phone = $_POST['phone'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-        // Database connection
-        $conn = new mysqli('localhost', 'root', '', 'user_db');
-        if ($conn->connect_error) {
-            $response['message'] = "Database connection failed: " . $conn->connect_error;
-            echo json_encode($response);
-            exit;
-        }
-
-        // Check if user already exists
-        $query = "SELECT * FROM users WHERE email = '$email'";
-        $result = $conn->query($query);
-
-        if ($result->num_rows > 0) {
-            $response['message'] = "User already exists! Plece Login ";
-            $response['redirect'] = true; // Indicate redirection to login page
-        } else {
-            // Insert new user
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $query = "INSERT INTO users (name, email, phone, password) VALUES ('$name', '$email', '$phone', '$hashed_password')";
-            if ($conn->query($query)) {
-                $response['success'] = true;
-                $response['message'] = "Registration successful! Please log in.";
-            } else {
-                $response['message'] = "Error: " . $conn->error;
-            }
-        }
-
-        $conn->close();
-    } else {
+    if (empty($name) || empty($email) || empty($phone) || empty($password)) {
         $response['message'] = "All fields are required.";
+        echo json_encode($response);
+        exit;
     }
+
+    if (!str_ends_with($email, '@acropolis.in')) {
+        $response['message'] = "Email must belong to the acropolis.in domain.";
+        echo json_encode($response);
+        exit;
+    }
+
+    $conn = new mysqli('localhost', 'root', '', 'user_db');
+    if ($conn->connect_error) {
+        $response['message'] = "Database connection failed.";
+        echo json_encode($response);
+        exit;
+    }
+
+    $query = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $response['message'] = "User already exists!";
+    } else {
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $query = "INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('ssss', $name, $email, $phone, $hashed_password);
+        if ($stmt->execute()) {
+            $response['success'] = true;
+            $response['message'] = "Registration successful!";
+        } else {
+            $response['message'] = "Error: " . $conn->error;
+        }
+    }
+
+    $stmt->close();
+    $conn->close();
 } else {
     $response['message'] = "Invalid request method.";
 }
 
-// Return JSON response
 echo json_encode($response);
 ?>

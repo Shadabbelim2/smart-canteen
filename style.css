@@ -1550,3 +1550,15 @@ h2 {
   .receipt-container a:active {
     transform: scale(0.95);
   }
+
+  .password-wrapper {
+    position: relative;
+}
+
+.password-wrapper i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
