@@ -100,7 +100,7 @@ document.getElementById('otp-form').addEventListener('submit', async function (e
 
         if (result.success) {
             alert(result.message); // Registration successful
-            window.location.href = 'index.html'; // Redirect to homepage
+            window.location.href = 'login.html'; // Redirect to homepage
         } else {
             alert(result.message); // OTP invalid
         }

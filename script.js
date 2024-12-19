@@ -112,3 +112,29 @@ function saveOrder(items, total) {
     window.location.href = 'receipt.html';
 }
 
+
+// Function to toggle menu
+function toggleMenu() {
+    var navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('active');
+}
+
+// Function to toggle dropdown in mobile view
+document.querySelectorAll('.dropdown > a').forEach(item => {
+    item.addEventListener('click', function(event) {
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === 'block') {
+            dropdownContent.style.display = 'none';
+        } else {
+            dropdownContent.style.display = 'block';
+        }
+        event.stopPropagation(); // Prevent closing other menus
+    });
+});
+
+// Close all dropdowns if clicked outside
+document.addEventListener('click', function() {
+    document.querySelectorAll('.dropdown-content').forEach(function(menu) {
+        menu.style.display = 'none';
+    });
+});

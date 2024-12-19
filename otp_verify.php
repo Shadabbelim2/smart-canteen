@@ -5,15 +5,17 @@ header('Content-Type: application/json');
 $response = ['success' => false, 'message' => ''];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user_otp = $_POST['otp'] ?? '';
+    $otp = $_POST['otp'] ?? '';
+    $email = $_SESSION['email'] ?? '';
 
-    if ($user_otp == $_SESSION['otp']) {
-        // If OTP matches
-        $name = $_SESSION['name'];
-        $email = $_SESSION['email'];
-        $phone = $_SESSION['phone'];
-        $password = $_SESSION['password'];
+    if (empty($otp)) {
+        $response['message'] = "OTP is required.";
+        echo json_encode($response);
+        exit;
+    }
 
+    if ($otp == $_SESSION['otp']) {
+        // OTP is correct, update user as verified
         $conn = new mysqli('localhost', 'root', '', 'user_db');
         if ($conn->connect_error) {
             $response['message'] = "Database connection failed.";
@@ -21,15 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit;
         }
 
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)";
+        $query = "UPDATE users SET is_verified = 1 WHERE email = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('ssss', $name, $email, $phone, $hashed_password);
+        $stmt->bind_param('s', $email);
         if ($stmt->execute()) {
             $response['success'] = true;
-            $response['message'] = "Registration successful!";
+            $response['message'] = "Email verified successfully!";
         } else {
-            $response['message'] = "Error: " . $conn->error;
+            $response['message'] = "Error in verification.";
         }
 
         $stmt->close();
@@ -42,5 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 echo json_encode($response);
-
 ?>
