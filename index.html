@@ -146,24 +146,28 @@
   <script src="login.js"></script>
    <!-- JavaScript to handle user login logic on index page -->
    <script>
-    // Check if user is logged in by checking localStorage
     document.addEventListener('DOMContentLoaded', () => {
-        const userName = localStorage.getItem('userName');
-        const loginButton = document.getElementById('login-btn');
-        const userNameSpan = document.getElementById('user-name');
+    const userName = localStorage.getItem('userName');
+    const loginButton = document.getElementById('login-btn');
+    const userNameSpan = document.getElementById('user-name');
 
-        if (userName) {
-            // Hide login button and show user name
-            loginButton.style.display = 'none';
-            userNameSpan.style.display = 'inline';
-            userNameSpan.textContent = `Welcome, ${userName}`;
-        }
-    });
-
-    // Redirect to login page
-    function redirectToLogin() {
-        window.location.href = 'login.html';
+    if (userName) {
+        // Hide login button and show user name
+        loginButton.style.display = 'none';
+        userNameSpan.style.display = 'inline';
+        userNameSpan.textContent = `Welcome, ${userName}`;
+    } else {
+        // If user is not logged in, show login button
+        loginButton.style.display = 'inline';
+        userNameSpan.style.display = 'none';
     }
+});
+
+// Redirect to login page
+function redirectToLogin() {
+    window.location.href = 'login.html';
+}
+
   </script>
 </body>
 </html>
