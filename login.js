@@ -37,3 +37,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Toggle password visibility
+document.getElementById('toggle-password').addEventListener('click', function () {
+    const passwordField = document.getElementById('login-password');
+    const eyeIcon = document.getElementById('eye-icon');
+
+    // Toggle between text and password
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        eyeIcon.textContent = '🙈'; // Change icon
+    } else {
+        passwordField.type = 'password';
+        eyeIcon.textContent = '👁️'; // Change icon back
+    }
+});

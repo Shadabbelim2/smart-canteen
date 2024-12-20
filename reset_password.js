@@ -36,3 +36,34 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+// Toggle visibility for New Password
+document.getElementById('toggle-password-1').addEventListener('click', function () {
+    const passwordField = document.getElementById('password');
+    const eyeIcon = document.getElementById('eye-icon-1');
+
+    // Toggle between text and password
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        eyeIcon.textContent = '🙈'; // Change icon to closed eye
+    } else {
+        passwordField.type = 'password';
+        eyeIcon.textContent = '👁️'; // Change icon to open eye
+    }
+});
+
+// Toggle visibility for Confirm Password
+document.getElementById('toggle-password-2').addEventListener('click', function () {
+    const confirmPasswordField = document.getElementById('confirm-password');
+    const eyeIcon = document.getElementById('eye-icon-2');
+
+    // Toggle between text and password
+    if (confirmPasswordField.type === 'password') {
+        confirmPasswordField.type = 'text';
+        eyeIcon.textContent = '🙈'; // Change icon to closed eye
+    } else {
+        confirmPasswordField.type = 'password';
+        eyeIcon.textContent = '👁️'; // Change icon to open eye
+    }
+});

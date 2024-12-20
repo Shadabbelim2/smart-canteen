@@ -16,13 +16,20 @@
                 <!-- Div to show errors or success messages -->
                 <div id="response-message" style="color: red;"></div>
                 
-                <!-- Login Form -->
                 <form id="login-form">
-                    <input type="email" id="login-email" placeholder="Enter email">
-                    <input type="password" id="login-password" placeholder="Enter password">
+                    <div class="input-container">
+                        <input type="email" id="login-email" placeholder="Enter email">
+                    </div>
+                    <div class="input-container">
+                        <input type="password" id="login-password" placeholder="Enter password">
+                        <button type="button" id="toggle-password">
+                            <i class="eye-icon" id="eye-icon">👁️</i>
+                        </button>
+                    </div>
                     <button type="submit">Login</button>
                 </form>
-                <div id="response-message"></div>
+                
+                
                 
                 <div class="additional-links">
                     <a href="forgot_password.html" id="forgot-password-link">Forgot Password?</a>
