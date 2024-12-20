@@ -664,7 +664,8 @@ button.add-to-cart {
 }
 
 button.add-to-cart:hover {
-    background-color: #45a049;
+    background-color: white;
+    color:#4CAF50 ;
 }
 
 
