@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Canteen - Veg Pasta Menu</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-header">
+      <div class="contact-info">
+        <!-- Contact Us Button -->
+        <button class="Spacial" onclick="window.location.href='special-request.html'">
+          Special Request
+        </button>
+        
+      </div>
+      
+        <div>Open Hours: 9:00 AM - 9:00 PM</div>
+      </div>
+
+       
+      <header class="main-header">
+        <div class="logo">
+            <img src="logo.png" alt="Smart Canteen Logo">
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="javascript:void(0)">Menu</a>
+                <div class="dropdown-content">
+                    <a href="main-course.html">Main Course</a>
+                    <a href="cold-drink.html">Drink</a> 
+                    <a href="parathe.html">Parathe</a>
+                    <a href="break-fast.html">Breakfast</a>
+                </div>
+            </div>
+            <div class="dropdown">
+              <a href="javascript:void(0)">Junk Food</a>
+              <div class="dropdown-content">
+                  <a href="menu.html">Junk Food</a>
+                  <a href="pasta.html">Pasta</a>
+                  <a href="cheeps.html">Chips</a>
+                  <a href="ice-cream.html">ICE-Cream</a>
+                  <a href="chines.html">chines</a>
+              </div>
+          </div>
+            <a href="order.html">order</a>
+    
+            <a href="order-receipt.html">Check Order </a>
+            <a href="profile.html">My Profile</a>
+        </nav>
+    </header>
+<!-- Veg Pasta Section -->
+<section id="menu">
+    <h2>Veg Pasta Menu</h2>
+    <div class="menu-container">
+    <!-- Veg Pasta Dishes -->
+    <div class="menu-item">
+      <img src="menu-item-image/pennearrabbiata.jpg" alt="Penne Arrabbiata">
+      <h3>Penne Arrabbiata</h3>
+      <p>Delicious penne pasta tossed in a spicy tomato-based sauce with fresh basil and olive oil.</p>
+      <span class="price">₹180</span>
+      <button class="add-to-cart" data-name="Penne Arrabbiata" data-price="180">Add to Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="menu-item-image/spaghettipesto.jpg" alt="Spaghetti Pesto">
+      <h3>Spaghetti Pesto</h3>
+      <p>Classic spaghetti pasta with a creamy basil pesto sauce, topped with parmesan cheese.</p>
+      <span class="price">₹200</span>
+      <button class="add-to-cart" data-name="Spaghetti Pesto" data-price="200">Add to Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="menu-item-image/vegalfredopasta.jpg" alt="Veg Alfredo Pasta">
+      <h3>Veg Alfredo Pasta</h3>
+      <p>Rich and creamy Alfredo sauce served with mixed vegetables and your choice of pasta.</p>
+      <span class="price">₹220</span>
+      <button class="add-to-cart" data-name="Veg Alfredo Pasta" data-price="220">Add to Order</button>
+    </div>
+    
+    <div class="menu-item">
+      <img src="menu-item-image/vegetablelasagna.jpg" alt="Vegetable Lasagna">
+      <h3>Vegetable Lasagna</h3>
+      <p>Layers of pasta, fresh vegetables, and cheese baked to perfection.</p>
+      <span class="price">₹250</span>
+      <button class="add-to-cart" data-name="Vegetable Lasagna" data-price="250">Add to Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="menu-item-image/macaroniandcheese.jpg" alt="Macaroni and Cheese">
+      <h3>Macaroni and Cheese</h3>
+      <p>A comforting blend of macaroni pasta and creamy cheese sauce.</p>
+      <span class="price">₹170</span>
+      <button class="add-to-cart" data-name="Macaroni and Cheese" data-price="170">Add to Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="menu-item-image/fusilliprimavera.jpg" alt="Fusilli Primavera">
+      <h3>Fusilli Primavera</h3>
+      <p>Colorful fusilli pasta mixed with fresh seasonal vegetables and a light tomato sauce.</p>
+      <span class="price">₹190</span>
+      <button class="add-to-cart" data-name="Fusilli Primavera" data-price="190">Add to Order</button>
+    </div>
+  </div>
+</section>
+
+   <!-- Footer Section -->
+   <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Smart Canteen Logo" />
+        <p>Smart Canteen - Serving Fresh & Healthy Meals</p>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-location-pin"></i> ABC University Campus, Block C</p>
+        <span>
+          <p>  <i class="fas fa-phone"></i>
+            <a href="tel:+911234567890" class="contact-link">+91-12345-67890</a>
+          </span></p>
+         <p> <span> 
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:support@smartcanteen.com" class="contact-link">support@smartcanteen.com</a>
+          </span></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Smart Canteen. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="menu.js"></script>
+</body>
+</html>

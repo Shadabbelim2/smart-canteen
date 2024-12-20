@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Canteen - Ice Cream Menu</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-header">
+      <div class="contact-info">
+        <!-- Contact Us Button -->
+        <button class="Spacial" onclick="window.location.href='special-request.html'">
+          Special Request
+        </button>
+      </div>
+      <div>Open Hours: 9:00 AM - 9:00 PM</div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="logo.png" alt="Smart Canteen Logo">
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="javascript:void(0)">Menu</a>
+                <div class="dropdown-content">
+                    <a href="main-course.html">Main Course</a>
+                    <a href="cold-drink.html">Drink</a> 
+                    <a href="parathe.html">Parathe</a>
+                    <a href="break-fast.html">Breakfast</a>
+                </div>
+            </div>
+            <div class="dropdown">
+              <a href="javascript:void(0)">Junk Food</a>
+              <div class="dropdown-content">
+                  <a href="menu.html">Junk Food</a>
+                  <a href="pasta.html">Pasta</a>
+                  <a href="cheeps.html">Chips</a>
+                  <a href="ice-cream.html">ICE-Cream</a>
+                  <a href="chines.html">chines</a>
+              </div>
+          </div>
+            <a href="order.html">order</a>
+    
+            <a href="order-receipt.html">Check Order </a>
+            <a href="profile.html">My Profile</a>
+        </nav>
+    </header>
+<!-- Ice Cream Section -->
+<section id="menu">
+    <h2>Ice Cream Menu</h2>
+    <div class="menu-container">
+    <!-- Ice Cream Items -->
+    <div class="menu-item">
+      <img src="menu-item-image/vanilla.jpg.jpg" alt="Vanilla Ice Cream">
+      <h3>Vanilla Ice Cream</h3>
+      <p>Creamy vanilla ice cream topped with chocolate syrup and sprinkles.</p>
+      <span class="price">&#8377;80</span>
+      <button class="add-to-cart" data-name="Vanilla Ice Cream" data-price="80">Add to Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="menu-item-image/chocolateicecream.jpg" alt="Chocolate Ice Cream">
+      <h3>Chocolate Ice Cream</h3>
+      <p>Rich and indulgent chocolate ice cream made with the finest cocoa.</p>
+      <span class="price">&#8377;90</span>
+      <button class="add-to-cart" data-name="Chocolate Ice Cream" data-price="90">Add to Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="menu-item-image/strawberryicecream.jpg" alt="Strawberry Ice Cream">
+      <h3>Strawberry Ice Cream</h3>
+      <p>Fresh strawberry ice cream bursting with fruity flavor and sweetness.</p>
+      <span class="price">&#8377;85</span>
+      <button class="add-to-cart" data-name="Strawberry Ice Cream" data-price="85">Add to Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="menu-item-image/mangoicecream.jpg" alt="Mango Ice Cream">
+      <h3>Mango Ice Cream</h3>
+      <p>Delicious mango-flavored ice cream made with real Alphonso mangoes.</p>
+      <span class="price">&#8377;100</span>
+      <button class="add-to-cart" data-name="Mango Ice Cream" data-price="100">Add to Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="menu-item-image/pistachioicecream.jpg" alt="Pistachio Ice Cream">
+      <h3>Pistachio Ice Cream</h3>
+      <p>Nutty and creamy pistachio ice cream with crunchy pistachio bits.</p>
+      <span class="price">&#8377;110</span>
+      <button class="add-to-cart" data-name="Pistachio Ice Cream" data-price="110">Add to Order</button>
+    </div>
+    <div class="menu-item">
+      <img src="menu-item-image/cookiesandcream.jpg" alt="Cookies and Cream">
+      <h3>Cookies and Cream</h3>
+      <p>A delightful mix of vanilla ice cream and crushed chocolate cookies.</p>
+      <span class="price">&#8377;95</span>
+      <button class="add-to-cart" data-name="Cookies and Cream" data-price="95">Add to Order</button>
+    </div>
+    </div>
+</section>
+
+   <!-- Footer Section -->
+   <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Smart Canteen Logo" />
+        <p>Smart Canteen - Serving Fresh & Healthy Meals</p>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-location-pin"></i> ABC University Campus, Block C</p>
+        <span>
+          <p>  <i class="fas fa-phone"></i>
+            <a href="tel:+911234567890" class="contact-link">+91-12345-67890</a>
+          </span></p>
+         <p> <span> 
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:support@smartcanteen.com" class="contact-link">support@smartcanteen.com</a>
+          </span></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Smart Canteen. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Canteen - Cold Drinks</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-header">
+      <div class="contact-info">
+        <!-- Contact Us Button -->
+        <button class="Spacial" onclick="window.location.href='special-request.html'">
+          Special Request
+        </button>
+      </div>
+      <div>Open Hours: 9:00 AM - 9:00 PM</div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="logo.png" alt="Smart Canteen Logo">
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="javascript:void(0)">Menu</a>
+                <div class="dropdown-content">
+                    <a href="main-course.html">Main Course</a>
+                    <a href="cold-drink.html">Drink</a> 
+                    <a href="parathe.html">Parathe</a>
+                    <a href="break-fast.html">Breakfast</a>
+                </div>
+            </div>
+            <div class="dropdown">
+              <a href="javascript:void(0)">Junk Food</a>
+              <div class="dropdown-content">
+                  <a href="menu.html">Junk Food</a>
+                  <a href="pasta.html">Pasta</a>
+                  <a href="cheeps.html">Chips</a>
+                  <a href="ice-cream.html">ICE-Cream</a>
+                  <a href="chines.html">chines</a>
+              </div>
+          </div>
+            <a href="order.html">order</a>
+    
+            <a href="order-receipt.html">Check Order </a>
+            <a href="profile.html">My Profile</a>
+        </nav>
+    </header>
+    
+
+<!-- Cold Drinks Section -->
+<section id="cold-drinks">
+    <h2>Our Cold Drinks</h2>
+    <div class="menu-container">
+      <!-- Cold Drink Items -->
+      <div class="menu-item">
+        <img src="menu-item-image/classicsoda.jpg" alt="Soda">
+        <h3>Classic Soda</h3>
+        <p>Refreshing fizzy soda available in various flavors. Perfect for any occasion!</p>
+        <span class="price">₹50</span>
+        <button class="add-to-cart" data-name="Classic Soda" data-price="50">Add to Order</button>
+      </div>
+      <div class="menu-item">
+        <img src="menu-item-image/lemonade.jpg" alt="Lemonade">
+        <h3>Lemonade</h3>
+        <p>Zesty and tangy lemonade made with fresh lemons. A perfect summer drink!</p>
+        <span class="price">₹60</span>
+        <button class="add-to-cart" data-name="Lemonade" data-price="60">Add to Order</button>
+      </div>
+      <div class="menu-item">
+        <img src="menu-item-image/chocolatemilkshake.jpg" alt="Milkshake">
+        <h3>Chocolate Milkshake</h3>
+        <p>Rich and creamy milkshake with real chocolate. A delight for chocolate lovers.</p>
+        <span class="price">₹120</span>
+        <button class="add-to-cart" data-name="Chocolate Milkshake" data-price="120">Add to Order</button>
+      </div>
+      <div class="menu-item">
+        <img src="menu-item-image/icedtea.jpg.jpg" alt="Iced Coffee">
+        <h3>Iced Coffee</h3>
+        <p>Chilled coffee with a smooth and bold flavor. Energize your day!</p>
+        <span class="price">₹100</span>
+        <button class="add-to-cart" data-name="Iced Coffee" data-price="100">Add to Order</button>
+      </div>
+      <div class="menu-item">
+        <img src="menu-item-image/fruitsmoothie.jpg" alt="Smoothie">
+        <h3>Fruit Smoothie</h3>
+        <p>A refreshing blend of fresh fruits. Nutritious and delicious!</p>
+        <span class="price">₹130</span>
+        <button class="add-to-cart" data-name="Fruit Smoothie" data-price="130">Add to Order</button>
+      </div>
+      
+</section>
+
+<!-- Footer Section -->
+<footer id="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Smart Canteen Logo" />
+        <p>Smart Canteen - Serving Fresh & Healthy Meals</p>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-location-pin"></i> ABC University Campus, Block C</p>
+        <span>
+          <p>  <i class="fas fa-phone"></i>
+            <a href="tel:+911234567890" class="contact-link">+91-12345-67890</a>
+          </span></p>
+         <p> <span> 
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:support@smartcanteen.com" class="contact-link">support@smartcanteen.com</a>
+          </span></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Smart Canteen. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="menu.js"></script>
+</body>
+</html>

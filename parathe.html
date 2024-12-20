@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Canteen - Paratha Menu</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-header">
+      <div class="contact-info">
+        <!-- Contact Us Button -->
+        <button class="Spacial" onclick="window.location.href='special-request.html'">
+          Special Request
+        </button>
+        
+      </div>
+      
+        <div>Open Hours: 9:00 AM - 9:00 PM</div>
+      </div>
+
+       
+      <header class="main-header">
+        <div class="logo">
+            <img src="logo.png" alt="Smart Canteen Logo">
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="javascript:void(0)">Menu</a>
+                <div class="dropdown-content">
+                    <a href="main-course.html">Main Course</a>
+                    <a href="cold-drink.html">Drink</a> 
+                    <a href="parathe.html">Parathe</a>
+                    <a href="break-fast.html">Breakfast</a>
+                </div>
+            </div>
+            <div class="dropdown">
+              <a href="javascript:void(0)">Junk Food</a>
+              <div class="dropdown-content">
+                  <a href="menu.html">Junk Food</a>
+                  <a href="pasta.html">Pasta</a>
+                  <a href="cheeps.html">Chips</a>
+                  <a href="ice-cream.html">ICE-Cream</a>
+                  <a href="chines.html">chines</a>
+              </div>
+          </div>
+            <a href="order.html">order</a>
+    
+            <a href="order-receipt.html">Check Order </a>
+            <a href="profile.html">My Profile</a>
+        </nav>
+    </header>
+    
+<!-- Paratha Menu Section -->
+<section id="menu">
+    <h2>Our Paratha Menu</h2>
+    <div class="menu-container">
+    <!-- Classic Paratha -->
+    <div class="menu-item">
+      <img src="menu-item-image/classicparatha.jpg" alt="Classic Paratha">
+      <h3>Classic Paratha</h3>
+      <p>A warm, flaky paratha served with pickles and yogurt. Simple and delicious!</p>
+      <span class="price">₹80</span>
+      <button class="add-to-cart" data-name="Classic Paratha" data-price="80">Add to Order</button>
+    </div>
+
+    <!-- Aloo Paratha -->
+    <div class="menu-item">
+      <img src="menu-item-image/alooparatha.jpg" alt="Aloo Paratha">
+      <h3>Aloo Paratha</h3>
+      <p>A stuffed paratha with spiced mashed potatoes, served with curd and chutney. A North-Indian favorite!</p>
+      <span class="price">₹100</span>
+      <button class="add-to-cart" data-name="Aloo Paratha" data-price="100">Add to Order</button>
+    </div>
+  
+    <!-- Paneer Paratha -->
+    <div class="menu-item">
+      <img src="menu-item-image/pannerparatha.jpg" alt="Paneer Paratha">
+      <h3>Paneer Paratha</h3>
+      <p>A paratha stuffed with flavorful cottage cheese filling, served with yogurt and pickle.</p>
+      <span class="price">₹120</span>
+      <button class="add-to-cart" data-name="Paneer Paratha" data-price="120">Add to Order</button>
+    </div>
+  
+    <!-- Methi Paratha -->
+    <div class="menu-item">
+      <img src="menu-item-image/methiparatha.jpg" alt="Methi Paratha">
+      <h3>Methi Paratha</h3>
+      <p>A healthy paratha made with fenugreek leaves, served with curd and tangy pickle.</p>
+      <span class="price">₹110</span>
+      <button class="add-to-cart" data-name="Methi Paratha" data-price="110">Add to Order</button>
+    </div>
+  
+    <!-- Gobhi Paratha -->
+    <div class="menu-item">
+      <img src="menu-item-image/gobhiparatha.jpg" alt="Gobhi Paratha">
+      <h3>Gobhi Paratha</h3>
+      <p>A spiced cauliflower stuffed paratha, served with a side of raita and pickle.</p>
+      <span class="price">₹110</span>
+      <button class="add-to-cart" data-name="Gobhi Paratha" data-price="110">Add to Order</button>
+    </div>
+  
+    <!-- Lachha Paratha -->
+    <div class="menu-item">
+      <img src="menu-item-image/lachhaparatha.jpg" alt="Lachha Paratha">
+      <h3>Lachha Paratha</h3>
+      <p>A multi-layered, crispy paratha served with butter or curd.</p>
+      <span class="price">₹90</span>
+      <button class="add-to-cart" data-name="Lachha Paratha" data-price="90">Add to Order</button>
+    </div>
+  
+    <!-- Mixed Paratha -->
+    <div class="menu-item">
+      <img src="menu-item-image/mixedparatha.jpg" alt="Mixed Paratha">
+      <h3>Mixed Paratha</h3>
+      <p>A combination of multiple ingredients like carrots, peas, and spices. A flavorful treat!</p>
+      <span class="price">₹130</span>
+      <button class="add-to-cart" data-name="Mixed Paratha" data-price="130">Add to Order</button>
+    </div>
+  
+    <!-- Paratha Combo -->
+    <div class="menu-item">
+      <img src="menu-item-image/parathacombo.jpg" alt="Paratha Combo">
+      <h3>Paratha Combo</h3>
+      <p>Get any two parathas of your choice with a drink and side dish. A complete meal!</p>
+      <span class="price">₹200</span>
+      <button class="add-to-cart" data-name="Paratha Combo" data-price="200">Add to Order</button>
+    </div>
+  </div>
+</section>
+
+   <!-- Footer Section -->
+   <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Smart Canteen Logo" />
+        <p>Smart Canteen - Serving Fresh & Healthy Meals</p>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#orders">Orders</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <p><i class="fa-solid fa-location-pin"></i> ABC University Campus, Block C</p>
+        <span>
+          <p>  <i class="fas fa-phone"></i>
+            <a href="tel:+911234567890" class="contact-link">+91-12345-67890</a>
+          </span></p>
+         <p> <span> 
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:support@smartcanteen.com" class="contact-link">support@smartcanteen.com</a>
+          </span></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Smart Canteen. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="menu.js"></script>
+</body>
+</html>

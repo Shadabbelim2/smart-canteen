@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Canteen - Chips & Wafers</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-header">
+      <div class="contact-info">
+        <!-- Contact Us Button -->
+        <button class="Spacial" onclick="window.location.href='special-request.html'">
+          Special Request
+        </button>
+      </div>
+      <div>Open Hours: 9:00 AM - 9:00 PM</div>
+    </div>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="logo.png" alt="Smart Canteen Logo">
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="javascript:void(0)">Menu</a>
+                <div class="dropdown-content">
+                    <a href="main-course.html">Main Course</a>
+                    <a href="cold-drink.html">Drink</a> 
+                    <a href="parathe.html">Parathe</a>
+                    <a href="break-fast.html">Breakfast</a>
+                </div>
+            </div>
+            <div class="dropdown">
+              <a href="javascript:void(0)">Junk Food</a>
+              <div class="dropdown-content">
+                  <a href="menu.html">Junk Food</a>
+                  <a href="pasta.html">Pasta</a>
+                  <a href="cheeps.html">Chips</a>
+                  <a href="ice-cream.html">ICE-Cream</a>
+                  <a href="chines.html">chines</a>
+              </div>
+          </div>
+            <a href="order.html">order</a>
+    
+            <a href="order-receipt.html">Check Order </a>
+            <a href="profile.html">My Profile</a>
+        </nav>
+    </header>
+    <!-- Chips & Wafers Section -->
+    <section id="menu">
+        <h2>Chips & Wafers</h2>
+        <div class="menu-container">
+          
+          <!-- Chips Section -->
+          <div class="menu-item">
+            <img src="menu-item-image/classicpotatochips.jpg" alt="Potato Chips">
+            <h3>Classic Potato Chips</h3>
+            <p>Thinly sliced and perfectly fried crispy potato chips. A timeless snack!</p>
+            <span class="price">₹50</span>
+            <button class="add-to-cart" data-name="Classic Potato Chips" data-price="50">Add to Order</button>
+          </div>
+          <div class="menu-item">
+            <img src="menu-item-image/spicychips.jpg" alt="Spicy Chips">
+            <h3>Spicy Masala Chips</h3>
+            <p>A tangy and spicy twist on your favorite chips. Full of bold flavors!</p>
+            <span class="price">₹60</span>
+            <button class="add-to-cart" data-name="Spicy Masala Chips" data-price="60">Add to Order</button>
+          </div>
+          <div class="menu-item">
+            <img src="menu-item-image/cream&onion.jpg" alt="Cheese Chips">
+            <h3>Cheesy Chips</h3>
+            <p>Loaded with a creamy cheese flavor that melts in your mouth. A must-try!</p>
+            <span class="price">₹70</span>
+            <button class="add-to-cart" data-name="Cheesy Chips" data-price="70">Add to Order</button>
+          </div>
+          
+          <!-- Wafers Section -->
+          <div class="menu-item">
+            <img src="menu-item-image/bananachips.jpg" alt="Banana Wafers">
+            <h3>Banana Wafers</h3>
+            <p>Crispy and golden banana wafers, a sweet and savory delight!</p>
+            <span class="price">₹40</span>
+            <button class="add-to-cart" data-name="Banana Wafers" data-price="40">Add to Order</button>
+          </div>
+          <div class="menu-item">
+            <img src="menu-item-image/sweetpotatowafers.jpg" alt="Sweet Potato Wafers">
+            <h3>Sweet Potato Wafers</h3>
+            <p>Healthy and delicious wafers made from sweet potatoes. A perfect snack!</p>
+            <span class="price">₹50</span>
+            <button class="add-to-cart" data-name="Sweet Potato Wafers" data-price="50">Add to Order</button>
+          </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Smart Canteen Logo" />
+            <p>Smart Canteen - Serving Fresh & Healthy Meals</p>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#menu">Menu</a></li>
+              <li><a href="#orders">Orders</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-location-pin"></i> ABC University Campus, Block C</p>
+            <span>
+              <p>  <i class="fas fa-phone"></i>
+                <a href="tel:+911234567890" class="contact-link">+91-12345-67890</a>
+              </span></p>
+             <p> <span> 
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:support@smartcanteen.com" class="contact-link">support@smartcanteen.com</a>
+              </span></p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Smart Canteen. All Rights Reserved.</p>
+        </div>
+      </footer>
+      
+      <script src="menu.js"></script>
+    </body>
+    </html>
