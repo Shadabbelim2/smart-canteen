@@ -1650,3 +1650,158 @@ h2 {
     cursor: pointer;
 }
 
+.review-section {
+  text-align: center;
+  background: radial-gradient(circle, #f0f8ff, #e6f7ff, #d1f0ff); /* Radial gradient for a vibrant background */
+  padding: 60px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.review-section h2 {
+  font-size: 2.8rem;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #f4c430, #ffd700); /* Gradient for text */
+  -webkit-background-clip: text; /* For Safari and Chrome */
+  -webkit-text-fill-color: transparent; /* For Safari and Chrome */
+  background-clip: text; /* Standard property for compatibility */
+  text-fill-color: transparent; /* Standard property for compatibility */
+  animation: glow 2s infinite; /* Glow effect */
+}
+
+/* Glow Animation */
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #f4c430;
+  }
+  50% {
+    text-shadow: 0 0 15px #ffd700, 0 0 20px #f4c430;
+  }
+}
+
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #f4c430;
+  }
+  50% {
+    text-shadow: 0 0 15px #ffd700, 0 0 20px #f4c430;
+  }
+}
+
+.slider-container {
+  overflow: hidden;
+  width: 85%;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  padding: 20px;
+}
+
+.review-slider {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.5, 1, 0.5, 1); /* Smooth bounce-like animation */
+  gap: 20px;
+}
+
+.review-card {
+  flex: 0 0 calc(33.33% - 20px);
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.review-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #ffd700, #f4c430);
+  animation: progress 4s infinite;
+}
+
+@keyframes progress {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.review-card p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.stars {
+  font-size: 1.8rem;
+  color: #ffd700;
+  animation: sparkle 2s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .review-card {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+
+  .slider-container {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .review-section h2 {
+    font-size: 2.2rem;
+  }
+
+  .review-card p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .review-card p {
+    font-size: 0.9rem;
+  }
+
+  .stars {
+    font-size: 1.5rem;
+  }
+}
