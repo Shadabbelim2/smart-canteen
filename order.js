@@ -14,11 +14,7 @@ function displayCart() {
         const itemElement = document.createElement('div');
         itemElement.classList.add('cart-item');
 
-        itemElement.innerHTML = `
-            <span>${item.name}</span> - ₹${item.price}
-            <button class="delete-btn" data-index="${index}">Delete</button>
-        `;
-
+        itemElement.innerHTML = `<span>${item.name}</span> - ₹${item.price}<button class="delete-btn" data-index="${index}">Delete</button>`;
         cartContainer.appendChild(itemElement);
     });
 
@@ -48,7 +44,7 @@ function deleteCartItem(index) {
 // Call the displayCart function initially to show the items
 displayCart();
 
-/// Select the order button
+// Select the order button
 const orderButton = document.getElementById('order-btn');
 
 // Add click event listener to the button
@@ -58,6 +54,64 @@ orderButton.addEventListener('click', () => {
         return;
     }
 
+    // Display payment method selection modal
+    showPaymentMethods();
+});
+
+// Function to display payment methods
+function showPaymentMethods() {
+    // Create the payment method modal
+    const paymentModal = document.createElement('div');
+    paymentModal.id = 'payment-modal';
+    paymentModal.innerHTML = `
+        <div class="modal-content">
+            <h2>Select Payment Method</h2>
+            <form id="payment-form">
+                <label>
+                    <input type="radio" name="payment-method" value="UPI" required>
+                    UPI
+                </label><br>
+                <label>
+                    <input type="radio" name="payment-method" value="Credit Card" required>
+                    Credit Card
+                </label><br>
+                <label>
+                    <input type="radio" name="payment-method" value="Debit Card" required>
+                    Debit Card
+                </label><br>
+                <label>
+                    <input type="radio" name="payment-method" value="Cash on Delivery" required>
+                    Cash on Delivery
+                </label><br>
+                <button type="submit" id="confirm-payment-btn">Confirm Payment Method</button>
+            </form>
+        </div>
+    `;
+    paymentModal.classList.add('modal');
+    document.body.appendChild(paymentModal);
+
+    // Add event listener to the form
+    const paymentForm = document.getElementById('payment-form');
+    paymentForm.addEventListener('submit', handlePaymentSelection);
+}
+
+// Handle payment method selection
+function handlePaymentSelection(e) {
+    e.preventDefault(); // Prevent form submission
+
+    // Get selected payment method
+    const selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+    // Proceed with the order placement
+    placeOrder(selectedPaymentMethod);
+
+    // Close the modal
+    const paymentModal = document.getElementById('payment-modal');
+    paymentModal.remove();
+}
+
+// Function to place the order
+function placeOrder(paymentMethod) {
     // Generate a unique token (Order ID)
     const orderToken = 'ORD-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
 
@@ -69,7 +123,8 @@ orderButton.addEventListener('click', () => {
         orderToken: orderToken,
         orderTime: orderTime,
         items: cart,
-        total: cart.reduce((acc, item) => acc + item.price, 0)
+        total: cart.reduce((acc, item) => acc + item.price, 0),
+        paymentMethod: paymentMethod // Add payment method to order details
     };
 
     // Retrieve all past orders from localStorage
@@ -88,4 +143,4 @@ orderButton.addEventListener('click', () => {
 
     // Redirect to success page
     window.location.href = 'success.html';
-});
+}
