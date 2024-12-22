@@ -91,35 +91,51 @@
   </div>
 </footer> 
   <script>
-    // Retrieve all orders from localStorage
-    const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+    // Fetch user's order history from the server
+fetch('get_orders.php', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+})
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const orders = data.orders;
+            const orderHistoryContainer = document.getElementById('order-history');
 
-    // Get the order history container
-    const orderHistoryContainer = document.getElementById('order-history');
+            // If there are no orders, display a message
+            if (orders.length === 0) {
+                orderHistoryContainer.innerHTML = "<p>No orders found.</p>";
+            } else {
+                // Loop through all orders and display them
+                orders.forEach(order => {
+                    const orderDiv = document.createElement('div');
+                    orderDiv.classList.add('order');
 
-    // If there are no orders, display a message
-    if (allOrders.length === 0) {
-      orderHistoryContainer.innerHTML = "<p>No orders found.</p>";
-    } else {
-      // Loop through all orders and display them
-      allOrders.forEach(order => {
-        const orderDiv = document.createElement('div');
-        orderDiv.classList.add('order');
+                    orderDiv.innerHTML = `
+                        <h3>Order ID: ${order.orderToken}</h3>
+                        <p>Order Time: ${order.orderTime}</p>
+                        <p>Total: ₹${order.total}</p>
+                        <h4>Items:</h4>
+                        <ul>
+                            ${order.items.map(item => `<li>${item.name} - ₹${item.price}</li>`).join('')}
+                        </ul>
+                        <hr>
+                    `;
 
-        orderDiv.innerHTML = `
-          <h3>Order ID: ${order.orderToken}</h3>
-          <p>Order Time: ${order.orderTime}</p>
-          <p>Total: ₹${order.total}</p>
-          <h4>Items:</h4>
-          <ul>
-            ${order.items.map(item => `<li>${item.name} - ₹${item.price}</li>`).join('')}
-          </ul>
-          <hr>
-        `;
+                    orderHistoryContainer.appendChild(orderDiv);
+                });
+            }
+        } else {
+            alert(data.message || 'Failed to fetch order history');
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching order history:', error);
+        alert('An error occurred while fetching order history.');
+    });
 
-        orderHistoryContainer.appendChild(orderDiv);
-      });
-    }
   </script>
 </body>
 </html>

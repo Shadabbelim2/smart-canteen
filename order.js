@@ -144,3 +144,48 @@ function placeOrder(paymentMethod) {
     // Redirect to success page
     window.location.href = 'success.html';
 }
+function placeOrder(paymentMethod) {
+    // Generate a unique token (Order ID)
+    const orderToken = 'ORD-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+
+    // Get the current time
+    const orderTime = new Date().toLocaleString();
+
+    // Prepare the order details
+    const orderDetails = {
+        orderToken: orderToken,
+        orderTime: orderTime,
+        items: JSON.stringify(cart), // Convert items array to JSON string
+        total: cart.reduce((acc, item) => acc + item.price, 0),
+        paymentMethod: paymentMethod // Add payment method to order details
+    };
+
+    // Send order data to PHP script using AJAX
+    fetch('place_order.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(orderDetails) // Send order details as form data
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+            if (data.success) {
+                // Clear the cart and redirect to success page
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                window.location.href = 'success.html';
+            } else {
+                alert(data.message); // Show error message
+            }
+        })
+        .catch(error => {
+            console.error('Error placing order:', error);
+            alert('An error occurred. Please try again.');
+        });
+}
