@@ -999,7 +999,7 @@ button.add-to-cart:hover {
   min-height: 100vh; /* Full viewport height */
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #f3f2f5 0%, #b4b6b8 100%); /* Gradient background */
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
   font-family: 'Poppins', sans-serif; /* Modern font */
   color: #fff; /* White text */
   overflow: hidden; /* Prevents scrollbars */

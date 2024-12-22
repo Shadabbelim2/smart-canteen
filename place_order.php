@@ -15,13 +15,15 @@ if (!isset($_SESSION['email'])) {
 
 $email = $_SESSION['email']; // Get user email from session
 $orderToken = $_POST['orderToken'] ?? ''; // Order token
-$orderTime = $_POST['orderTime'] ?? ''; // Order time
 $items = $_POST['items'] ?? ''; // Order items in JSON format
 $totalPrice = $_POST['total'] ?? 0; // Total price
 $paymentMethod = $_POST['paymentMethod'] ?? ''; // Payment method
 
+// Generate current date and time in Y-m-d H:i:s format
+$orderTime = date('Y-m-d H:i:s');
+
 // Validate input data
-if (empty($orderToken) || empty($orderTime) || empty($items) || empty($paymentMethod) || $totalPrice <= 0) {
+if (empty($orderToken) || empty($items) || empty($paymentMethod) || $totalPrice <= 0) {
     echo json_encode(['success' => false, 'message' => 'Invalid order details']);
     exit;
 }
