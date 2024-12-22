@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
     
 </head>
 <body>
@@ -74,14 +75,33 @@
 
 
   <!-- Hero Section -->
-<section id="hero">
-    <div class="hero-content">
-      <h1>Welcome to Smart Canteen</h1>
-      <p>Your on-campus dining experience reimagined!</p>
-      <a href="menu.html" class="btn">Explore Menu</a>
-    </div>
-    <!-- <img src="canteen-banner.jpg" alt="Smart Canteen" class="hero-img"> -->
-  </section>
+  <section id="home" class="hero"
+  style="background-image: url(home-image/home-front.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+  <div class="hero-content">
+      <h1>Welcome to <span class="highlight">Smart Canteen</span></h1>
+      <p>
+          Experience delicious, fresh, and hygienic meals at your convenience! Explore our variety of cuisines,
+          exclusive offers, and a seamless ordering experience.
+      </p>
+      <div class="cta-buttons">
+          <a href="menu.html" class="btn-secondary">Explore Menu</a>
+          <a href="order.html" class="btn-secondary">Order Now</a>
+      </div>
+  </div>
+
+  <div id="lottie-animation" style="width: 400px; height: 400px; margin: 0 auto;"></div>
+
+  <script>
+      var animation = lottie.loadAnimation({
+          container: document.getElementById('lottie-animation'),
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          path: 'gif/gif1.json' // Replace with the path of your JSON file
+      });
+  </script>
+</section>
+
   <section class="breadcrumb">
     <p><a href="index.html">Home</a></p>
 </section>
@@ -137,6 +157,44 @@
   </div>
   
   
+   <!-- Special Offers Section -->
+   <section class="special-offers">
+    <h2>Special Offers</h2>
+    <div class="offer">
+      <h3>Flat 20% Off</h3>
+      <p>On all orders above ₹300. Fresh and healthy meals for you!</p>
+    </div>
+    <div class="offer">
+      <h3>Combo Deals</h3>
+      <p>Get a Veggie Delight Combo starting at ₹149!</p>
+    </div>
+  </section>
+
+  <!-- Popular Items Section -->
+  <section class="popular-items">
+    <h2>Popular Vegetarian Items</h2>
+    <div class="item">
+      <img src="menu-item-image/alooparatha.jpg" alt="Aloo Paratha">
+      <h3>AlOO Paratha</h3>
+      <p>₹199</p>
+    </div>
+    <div class="item">
+      <img src="menu-item-image/vegburger.jpg.jpg" alt="Veggie Burger">
+      <h3>Veggie Burger</h3>
+      <p>₹149</p>
+    </div>
+    <div class="item">
+      <img src="menu-item-image/pennearrabbiata.jpg" alt="Veg Pasta">
+      <h3>Veg Alfredo Pasta</h3>
+      <p>₹179</p>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section class="call-to-action">
+    <h2>Craving Fresh and Healthy Meals?</h2>
+    <a href="order.html" class="btn">Order Now</a>
+  </section>
   <!-- Testimonials Section -->
   <section id="testimonials">
     <h2>What Our Customers Say</h2>
@@ -172,10 +230,10 @@
       <div class="footer-links">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#orders">Orders</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="order.html">Orders</a></li>
+          <li><a href="order-receipt.html">Check Order</a></li>
         </ul>
       </div>
       <div class="footer-contact">
