@@ -999,7 +999,7 @@ button.add-to-cart:hover {
   min-height: 100vh; /* Full viewport height */
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+  background: linear-gradient(135deg, #f3f2f5 0%, #b4b6b8 100%); /* Gradient background */
   font-family: 'Poppins', sans-serif; /* Modern font */
   color: #fff; /* White text */
   overflow: hidden; /* Prevents scrollbars */
@@ -1040,7 +1040,8 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="tel"] {
-  width: 100%;
+  width: 100%; /* Ensures the input takes full width of the container */
+  max-width: 400px; /* Restricts maximum width to avoid excessive input width on large screens */
   padding: 15px;
   margin-bottom: 20px;
   border: none;
@@ -1053,6 +1054,7 @@ input[type="tel"] {
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
   outline: none;
   transition: all 0.3s ease-in-out;
+  box-sizing: border-box; /* Ensures padding doesn't affect overall width calculation */
 }
 
 /* Input Focus Effect */
@@ -1060,6 +1062,28 @@ input:focus {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   background: #fff;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"] {
+    width: 90%; /* Reduces width on tablets for better spacing */
+  }
+}
+
+@media (max-width: 480px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"] {
+    width: 100%; /* Full width for mobile screens */
+    padding: 12px; /* Slightly reduce padding on small screens */
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+}
+
 
 /* Submit Button */
 button[type="submit"] {
@@ -1457,7 +1481,7 @@ button[type="submit"]:active {
 
 /* Container Styles */
 .container {
-  max-width: 800px;
+  max-width: 80%;
   margin: 40px auto;
   padding: 20px;
   background: #fff;
@@ -1572,6 +1596,32 @@ h2 {
 
 .logout:hover {
   background: #155bb5;
+}
+
+/* Edit Button */
+#editButton {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #1a73e8; /* Blue background */
+  color: white;
+  border: none;
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  outline: none;
+}
+
+/* Hover Effect */
+#editButton:hover {
+  background-color: #155bb5; /* Darker blue when hovered */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+/* Focus Effect */
+#editButton:focus {
+  box-shadow: 0 0 10px rgba(26, 115, 232, 0.5); /* Highlight border on focus */
 }
 
   /* Style for the receipt container */
