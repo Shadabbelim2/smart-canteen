@@ -1,59 +1,46 @@
-document.getElementById('signup-form').addEventListener('submit', async function (e) {
-    e.preventDefault(); // Prevent form submission
+document.getElementById('signup-form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Default form submission ko prevent karein
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
+    const loader = document.getElementById('loader');
+    const responseMessage = document.getElementById('response-message');
 
-    // Email validation for @acropolis.in domain
-    if (!email.endsWith('@acropolis.in')) {
-        alert('Email must belong to the acropolis.in domain.');
-        return;
-    }
+    // Loader show karo
+    loader.style.display = 'block';
+    responseMessage.textContent = ''; // Clear any previous messages
 
-    // Check if passwords match
-    if (password !== confirmPassword) {
-        alert('Passwords do not match!');
-        return;
-    }
-
-    // Send form data to backend
     const formData = new FormData(this);
 
-    try {
-        const response = await fetch('signup.php', {
-            method: 'POST',
-            body: formData,
+    // AJAX request to send form data to PHP
+    fetch('signup.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Loader ko hide karo
+            loader.style.display = 'none';
+
+            // Response ko show karo
+            if (data.success) {
+                responseMessage.style.color = 'green';
+                responseMessage.textContent = data.message;
+
+                // OTP Form ko display karne ka code
+                document.getElementById('signup-form').style.display = 'none';
+                document.getElementById('otp-form').style.display = 'block';
+            } else {
+                responseMessage.style.color = 'red';
+                responseMessage.textContent = data.message;
+            }
+        })
+        .catch(error => {
+            // Loader ko hide karo
+            loader.style.display = 'none';
+
+            // Error message dikhana
+            responseMessage.style.color = 'red';
+            responseMessage.textContent = 'An error occurred. Please try again.';
         });
-
-        // Log raw response for debugging
-        const textResponse = await response.text(); // Get raw response text
-        console.log("Raw Response:", textResponse); // Debugging line
-
-        let result;
-        try {
-            result = JSON.parse(textResponse); // Try to parse it as JSON
-        } catch (error) {
-            console.error("Error parsing JSON:", error);
-            alert('Server returned an invalid response.');
-            return;
-        }
-
-        const messageDiv = document.getElementById('response-message');
-        if (result.success) {
-            messageDiv.style.color = "green";
-            messageDiv.textContent = result.message;
-            alert(result.message); // OTP sent message
-            document.getElementById('signup-form').style.display = 'none';
-            document.getElementById('otp-form').style.display = 'block';
-        } else {
-            messageDiv.style.color = "red";
-            messageDiv.textContent = result.message;
-            alert(result.message);
-        }
-    } catch (error) {
-        console.error("Error:", error);
-    }
 });
 
 // Toggle password visibility
